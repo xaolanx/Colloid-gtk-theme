@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 for theme in '' '-Purple' '-Pink' '-Red' '-Orange' '-Yellow' '-Green' '-Teal' '-Grey'; do
   for color in '' '-Dark'; do
-    for type in '' '-Nord' '-Dracula' '-Gruvbox' '-Everforest' '-Catppuccin'; do
+    for type in '' '-Nord' '-Dracula' '-Gruvbox' '-Everforest' '-Catppuccin' '-Kanagawa'; do
       if [[ "$color" == '' ]]; then
         case "$theme" in
           '')
@@ -197,6 +197,40 @@ for theme in '' '-Purple' '-Pink' '-Red' '-Orange' '-Yellow' '-Green' '-Teal' '-
               ;;
           esac
         fi
+
+        if [[ "$type" == '-Kanagawa' ]]; then
+          background_color='#181616'
+          case "$theme" in
+            '')
+              theme_color='#c5c9c5'
+              ;;
+            -Purple)
+              theme_color='#a292a3'
+              ;;
+            -Pink)
+              theme_color='#c4746e'
+              ;;
+            -Red)
+              theme_color='#c4746e'
+              ;;
+            -Orange)
+              theme_color='#e46876'
+              ;;
+            -Yellow)
+              theme_color='#c4b28a'
+              ;;
+            -Green)
+              theme_color='#8a9a7b'
+              ;;
+            -Teal)
+              theme_color='#8ea4a2'
+              ;;
+            -Grey)
+              theme_color='#8ba4b0'
+              ;;
+          esac
+        fi
+        
       else
         case "$theme" in
           '')
@@ -392,6 +426,39 @@ for theme in '' '-Purple' '-Pink' '-Red' '-Orange' '-Yellow' '-Green' '-Teal' '-
           esac
         fi
       fi
+
+        if [[ "$type" == '-Kanagawa' ]]; then
+          background_color='#1F1F28'
+          case "$theme" in
+            '')
+              theme_color='#DCD7BA'
+              ;;
+            -Purple)
+              theme_color='#957FB8'
+              ;;
+            -Pink)
+              theme_color='#C34043'
+              ;;
+            -Red)
+              theme_color='#C34043'
+              ;;
+            -Orange)
+              theme_color='#FFA066'
+              ;;
+            -Yellow)
+              theme_color='#DCA561'
+              ;;
+            -Green)
+              theme_color='#98BB6C'
+              ;;
+            -Teal)
+              theme_color='#7FB4CA'
+              ;;
+            -Grey)
+              theme_color='#7E9CD8'
+              ;;
+          esac
+        fi
 
       if [[ "$type" != '' ]]; then
         cp -r "assets${color}.svg" "assets${theme}${color}${type}.svg"
