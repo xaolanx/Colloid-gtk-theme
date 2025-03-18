@@ -256,6 +256,47 @@ make_assets() {
     esac
   fi
 
+  if [[ "$scheme" == '-Kanagawa' ]]; then
+    case "$theme" in
+      '')
+        theme_color_dark='#DCD7BA'
+        theme_color_light='#c5c9c5'
+        ;;
+      -Purple)
+        theme_color_dark='#957FB8'
+        theme_color_light='#a292a3'
+        ;;
+      -Pink)
+        theme_color_dark='#C34043'
+        theme_color_light='#c4746e'
+        ;;
+      -Red)
+        theme_color_dark='#C34043'
+        theme_color_light='#c4746e'
+        ;;
+      -Orange)
+        theme_color_dark='#FFA066'
+        theme_color_light='#e46876'
+        ;;
+      -Yellow)
+        theme_color_dark='#DCA561'
+        theme_color_light='#c4b28a'
+        ;;
+      -Green)
+        theme_color_dark='#98BB6C'
+        theme_color_light='#8a9a7b'
+        ;;
+      -Teal)
+        theme_color_dark='#7FB4CA'
+        theme_color_light='#8ea4a2'
+        ;;
+      -Grey)
+        theme_color_dark='#7E9CD8'
+        theme_color_light='#8ba4b0'
+        ;;
+    esac
+  fi  
+
   if [[ "$blackness" == 'true' ]]; then
     case "$scheme" in
       '')
@@ -345,6 +386,12 @@ make_assets() {
         titlebar_light='#e6e9ef'
         titlebar_dark='#24273a'
         ;;
+      -Kanagawa)
+        background_light='#181616'
+        background_dark='#1F1F28'
+        background_dark_alt='#2A2A37'
+        titlebar_light='#0d0c0c'
+        titlebar_dark='#2A2A37'        
     esac
   fi
 
@@ -465,6 +512,17 @@ make_assets() {
         button_min="#eacb8e"
       fi
       ;;
+    -Kanagawa)
+      if [[ "$color" == '-Light' ]]; then
+        button_close="#c4746e"
+        button_max="#c4b28a"
+        button_min="#8a9a7b"
+      else
+        button_close="#C34043"
+        button_max="#DCA561"
+        button_min="#98BB6C"
+      fi
+      ;;      
   esac
 
   sed -i "s/#fd5f51/${button_close}/g"                                          "${THEME_DIR}/xfwm4/close-active.svg"

@@ -58,7 +58,7 @@
 }
 
 @function theme($color) {
-  @if ($variant == 'light') {
+  @if ($variant == 'dark') {
     @if ($theme == 'default') { @return $default-dark; }
     @if ($theme == 'purple') { @return $purple-dark; }
     @if ($theme == 'pink') { @return $pink-dark; }
