@@ -178,14 +178,16 @@ iconview {
   &:hover, &:selected { border-radius: $corner-radius; }
 }
 
+%rubberband,
 .rubberband,
 rubberband {
+  // border-radius: 3px;
   border: 1px solid $primary;
   background-color: rgba($primary, 0.3);
 }
 
 flowbox {
-  rubberband { @extend rubberband; }
+  rubberband { @extend %rubberband; }
 
   flowboxchild {
     padding: $space-size / 2;
@@ -1493,7 +1495,7 @@ treeview.view {
     @extend %selected_items;
   }
 
-  rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
+  rubberband { @extend %rubberband; } // to avoid borders being overridden by the previously set props
 
   &.separator {
     min-height: $space-size;
@@ -3665,7 +3667,7 @@ colorchooser .popover.osd {
 
   // &:hover { -gtk-icon-effect: highlight; }
 
-  rubberband, .rubberband { @extend rubberband; }
+  rubberband, .rubberband { @extend %rubberband; }
 }
 
 // .scale-popup {
@@ -3986,10 +3988,14 @@ stackswitcher {
   border: none;
 
   &.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action) {
-    margin: 0 0;
+    margin: 0;
     background-color: transparent;
     border-radius: $corner-radius;
     padding: ($medium-size - 24px - $space-size) / 2 ($medium-size - 16px) / 2;
+
+    + button {
+      margin-left: $space-size / 2;
+    }
 
     &.text-button { min-width: 100px; }
 
